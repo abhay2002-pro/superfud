@@ -2,7 +2,7 @@ import React from 'react'
 import '../../Styles/RestaurantDetails.Module.css'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Header from '../Common/Header'
+import Header from '../Utils/Header'
 import {useParams} from 'react-router-dom'
 import {useEffect,useState} from 'react'
 import Modal from 'react-modal'

@@ -15,8 +15,10 @@ export default class Mealtype extends Component {
   componentDidMount() {
     fetch("http://localhost:7070/mealtypes", { method: "GET" })
       .then((response) => response.json())
-      .then((data) => this.setState({ mealtypes: data.data }));
+      .then((data) => this.setState({ mealtypes: data.data }))
+      .catch((error) => console.log(error));
   }
+  
   render() {
     let quickSearchList =
       this.state.mealtypes.length &&
