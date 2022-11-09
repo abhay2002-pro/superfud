@@ -10,8 +10,6 @@ import './App.css';
 function App() {
   return (
    <div>
-      {/* <Home /> */}
-      {/* <RestaurantDetails/> */}
       <Routes>
         <Route path="/" element = {<Home />}/>
         <Route path="/Details/:rName" element = {<RestaurantDetails/>}/>

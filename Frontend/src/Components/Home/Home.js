@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
-import Wallpaper from './Wallpaper'
+import React from 'react'
 import Mealtype from './Mealtype'
-export default class Home extends Component {
-  render() {
-    return (
-      <div>
-        <Wallpaper/>
-        <Mealtype />
-      </div>
-    )
-  }
+import Wallpaper from './Wallpaper'
+
+function Home() {
+  return (
+    <>
+     <Wallpaper/>
+     <Mealtype /> 
+    </>
+  )
 }
+
+export default Home
