@@ -1,6 +1,6 @@
 import Home from './Components/Home/Home'
 import RestaurantDetails from './Components/RestaurentDetail/RestaurantDetails'
-import Filter from './Components/RestaurentDetail/Filter'
+
 import {
   Routes,
   Route,
@@ -13,7 +13,6 @@ function App() {
       <Routes>
         <Route path="/" element = {<Home />}/>
         <Route path="/Details/:rName" element = {<RestaurantDetails/>}/>
-        <Route path = "/filter" element = {<Filter />}/>
       </Routes>
    </div>
   );

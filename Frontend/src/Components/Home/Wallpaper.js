@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import homepage from "../../Assets/Images/homepage.png";
+import homepage from "../../Assets/Images/homepage.jpeg";
 import "../../Styles/Wallpaper.Module.css";
 
 function Wallpaper() {
@@ -12,8 +12,6 @@ function Wallpaper() {
       .then((response) => response.json())
       .then((data) => {
         setLocations(data.data);
-        console.log(data);
-        console.log(locations);
       });
   }, []);
 
@@ -30,42 +28,51 @@ function Wallpaper() {
   return (
     <>
       <div>
-        <img src={homepage} alt="homeimage" width="100%" height="450px" />
-        <div className="logo">e!</div>
-        <div className="headings">
-          Find the best restuarants, cafes and bars
-        </div>
-        <div className="locationSelector">
-          <select className="locationDropdown" onChange={fetchRestaurants}>
-            <option value="0">Select</option>
-            {locations.length !== 0 &&
-              locations.map((location) => {
-                return (
-                  <option value={location.city_id} key={location.name}>
-                    {location.name}
-                  </option>
-                );
-              })}
-          </select>
-          <div id="notebooks">
-            <input
-              className="restaurantsinput"
-              type="text"
-              placeholder="Search Restaurant"
-            />
-            <ul>
-              {restaurants.length !== 0 &&
-                restaurants.map((restaurant) => {
+        <img
+          src={homepage}
+          alt="homeimage"
+          width="100%"
+          height="100%"
+          style={{ minHeight: "100%", position: "fixed", top: "0", left: "0" }}
+        />
+        <div
+          className="mainContent"
+          style={{
+            textAlign: "center",
+            backgroundColor: "black",
+            padding: "40px",
+          }}
+        >
+          <div style={{ color: "white" }}>
+            <h1>Find the best restuarants, cafes and bars</h1>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <select className="locationDropdown" onChange={fetchRestaurants}>
+              <option value="0">Select Location</option>
+              {locations.length !== 0 &&
+                locations.map((location) => {
                   return (
-                    <li>
-                      <Link to={`/Details/${restaurant.name}`}>
-                        {" "}
-                        {restaurant.name}
-                      </Link>
-                    </li>
+                    <option value={location.city_id} key={location.name}>
+                      {location.name}
+                    </option>
                   );
                 })}
-            </ul>
+            </select>
+            <div id="notebooks">
+              <ul style={{ listStyleType: "none" }}>
+                {restaurants.length !== 0 &&
+                  restaurants.map((restaurant) => {
+                    return (
+                      <Link
+                        to={`/Details/${restaurant.name}`}
+                        style={{ textDecoration: "none", color: "black" }}
+                      >
+                        <li>{restaurant.name}</li>
+                      </Link>
+                    );
+                  })}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
